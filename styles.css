@@ -4,9 +4,23 @@
     padding: 0;
     font-size: 14px;
 }
+
+:root {
+    --primary-color:white;
+    --secondary-color: black;
+    --tertiary-color: coral;
+    --hyperlink-color: blue;
+}
+
+a {
+    color: var(--hyperlink-color);
+    font-weight: 1000;
+}
+
 .top {
     height: 80px;
-    background: rosybrown;
+    background: var(--tertiary-color);
+    box-shadow: 0px 2px 4px -2px grey;
 }
 
 .headline {
@@ -15,6 +29,7 @@
     padding-top: 26px;
     border: none;
     background: none;
+    color: var(--primary-color);
 }
 
 .name {
@@ -22,20 +37,21 @@
 }
 
 #header {
-    border-bottom: 4px solid rosybrown;
+    border-bottom: 4px solid coral;
     margin: 0 0 10px 0;
     padding-left: 5px;
     font-size: 16px;
     font-weight: bold;
+    color: var(--primary-color);
 }
 
 #header span {
-    background: rosybrown;
+    background: var(--tertiary-color);
     padding: 4px 16px;
     font-size: 16px;
 }
 p #header {
-    background: rosybrown;
+    background: var(--tertiary-color);
 }
 #title {
     list-style: none;
