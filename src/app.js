@@ -19,9 +19,13 @@ menuButton.addEventListener('click', function () {
 });
 
 var icon = document.getElementById("icon");
+var iconmm = document.getElementById("iconmm");
 
 icon.onclick = function() {
-    document.body.classList.toggle("light-theme");
+    document.body.classList.toggle("dark-theme");
 }
 
+iconmm.onclick = function() {
+    document.body.classList.toggle("dark-theme");
+}
 
