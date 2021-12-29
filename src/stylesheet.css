@@ -1,6 +1,7 @@
 /*Main Content*/
 * {
 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
 	background-color: var(--primary-color);
 	color: var(--secondary-color);
 	text-decoration: none;
@@ -11,9 +12,9 @@
 	--secondary-color: #222222;
 }
 
-.light-theme {
+.dark-theme {
 	--primary-color: #222222;
-	--secondary-color: #ffffff;
+	--secondary-color: #f2f2f2;
 }
 
 html, body {
@@ -45,11 +46,14 @@ section {
 }
 
 .logo {
-	padding-top: 24px;
+	padding-top: 28px;
 	padding-left: 30px;
 	font-size: 20px;
-	font-weight: lighter; 
 	background-color: transparent;
+}
+
+.longTextLogo {
+	font-size: 16px;
 }
 
 nav {
@@ -60,7 +64,6 @@ nav {
 	justify-content: flex-start;
 	height: 80px;
 	z-index: 1001;
-	border-bottom: 1px solid #f2f2f2;
 }
 
 .nav-ul {
@@ -77,7 +80,11 @@ ul.show {
 }
 
 .nav-ul li {
-	padding-top: 12px;
+	padding-top: 16px;
+}
+
+.nav-li a {
+	font-size: 16px;
 }
 
 li {
@@ -181,6 +188,7 @@ p, .docu-ul {
 	z-index: 1;
 }
 
+/*scroll down text*/
 .bottom-text {
 	position: absolute;
 	text-align: center;
@@ -546,7 +554,7 @@ textarea {
 	background: none;
 	padding: 5px;
 	background-color: #9A52FF;
-	color: var(--primary-color);
+	color: #f2f2f2;
 	border-radius: 4px;
 	cursor: pointer;
 	transition: 0.5s;
@@ -648,6 +656,36 @@ textarea {
 	z-index: 1050;
 }
 
+/*Dropdown menu, Languages*/
+.dropdown {
+	position: fixed;
+	display: inline-block;
+	top: 30px;
+	right: 55px;
+	z-index: 1050;
+	padding-bottom: 50px;
+	background-color: transparent;
+}
+
+.dropdownLanguages {
+	display: none;
+	position: fixed;
+	top: 85px;
+	right: 20px;
+	z-index: 1055;
+}
+
+.dropdownLanguages a {
+	display: block;
+	padding: 5px;
+	background-color: #9A52FF;
+	color: #f2f2f2;
+}
+
+.dropdown:hover .dropdownLanguages {
+	display: block;
+}
+
 #icon:hover {
 	transform: scale(1.25);
 }
@@ -659,6 +697,10 @@ textarea {
 
 .social-media:hover {
 	transform: scale(1.1);
+}
+
+.social-media {
+	padding-bottom: 10px;
 }
 
 /*Showcase*/
@@ -740,6 +782,7 @@ textarea {
 
 .shortTextLogo {
 	display: none;
+	font-size: 16px;
 }
 
 .mobileBreak {
@@ -778,8 +821,9 @@ textarea {
 		width: 85%;
 	}
 
-	#icon {
-		right: 50%;
+	#icon, #languagesIcon {
+		display: none;
+		/*right: 50%;*/
 	}
 
 	.slider {
@@ -812,6 +856,7 @@ textarea {
 	}
 	.longTextLogo {
 		display: none;
+		font-size: 16px;
 	}
 
 	.CV_container {
@@ -823,6 +868,10 @@ textarea {
 	}
 
 	.mobileBreak {
+		display: block;
+	}
+
+	.bottom-text {
 		display: block;
 	}
 }
