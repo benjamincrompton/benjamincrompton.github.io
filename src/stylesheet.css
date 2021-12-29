@@ -64,6 +64,7 @@ nav {
 	justify-content: flex-start;
 	height: 80px;
 	z-index: 1001;
+	box-shadow: 0 8px 16px -8px rgb(0 0 0 / 16%);
 }
 
 .nav-ul {
@@ -871,9 +872,19 @@ textarea {
 		display: block;
 	}
 
-	.bottom-text {
-		display: block;
+	#bioOne {
+		display: relative;
 	}
+
+	.centre-text {
+		display: relative;
+	}
+
+	.bottom-text {
+		display: relative;
+	}
+
+
 }
 
 #bck-sun-left {
