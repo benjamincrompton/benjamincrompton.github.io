@@ -24,7 +24,6 @@ var iconmm = document.getElementById("iconmm");
 icon.onclick = function() {
     document.body.classList.toggle("dark-theme");
 }
-
 iconmm.onclick = function() {
     document.body.classList.toggle("dark-theme");
 }
