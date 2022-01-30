@@ -1,7 +1,8 @@
 /*Main Content*/
 * {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Fira Code', monospace;
 	font-size: 14px;
+	line-height: 1.5;
 	background-color: var(--primary-color);
 	color: var(--secondary-color);
 	text-decoration: none;
@@ -9,7 +10,7 @@
 
 :root {
 	--primary-color: #ffffff;
-	--secondary-color: #222222;
+	--secondary-color: #444444;
 }
 
 .dark-theme {
@@ -62,9 +63,10 @@ nav {
 	top: 0;
 	width: 100%;
 	justify-content: flex-start;
-	height: 80px;
+	height: 70px;
 	z-index: 1001;
-	box-shadow: 0 8px 16px -8px rgb(0 0 0 / 16%);
+	border-bottom: 1px solid lightgrey /*#f2f2f2*/;
+	/*box-shadow: 0 8px 16px -8px rgb(0 0 0 / 16%);*/
 }
 
 .nav-ul {
@@ -116,7 +118,7 @@ h1 {
 }
 
 h2 {
-	font-size: 30px;
+	font-size: 22px;
 	display: block;
 	margin-bottom: 10px;
 	max-width:600px;
@@ -127,7 +129,7 @@ h2 {
 }
 
 h3 {
-	font-size: 24px;
+	font-size: 22px;
 	z-index: 1;
 }
 
@@ -138,14 +140,14 @@ h3 {
 }
 
 a {
-	font-size: 14px;
+	font-size: 12px;
 	z-index: 1;
 }
 
 #bioText {
 	margin-bottom: 10px;
-	font-size: 14px;
-	text-align: justify;
+	font-size: 12px;
+	text-align: left;
 	padding-bottom: 10px;
 	max-width:600px; 
 	margin-left: auto;
@@ -166,7 +168,7 @@ p, .docu-ul {
 	margin-top: 0;
 	margin-bottom: 0;
 	padding: 0;
-	font-size: 14px;
+	font-size: 12px;
 	text-align: left;
 	/*padding-bottom: 10px; */
 	max-width:1300px; 
@@ -264,18 +266,18 @@ footer {
 
 .menu-button {
 	display: none;
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 20px;
 	cursor: pointer;
 	transition: all .5s ease-in-out;
-	padding: 37.5px 10px 0 0;
+	padding: 42px 10px 0 0;
 	margin: 0;
 }
 
 /*Mobile Menu*/
 .menu-button__mobile {
 	width: 20px;
-	height: 3px;
+	height: 2px;
 	background: var(--secondary-color);
 	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(255,101,47,.2);
@@ -284,27 +286,27 @@ footer {
 }
 
 .menu-button__mobile:hover {
-	transform: scale(1.1);
+	transform: scale(1.025);
 }
 
 .menu-button__mobile::before,
 .menu-button__mobile::after {
 	content: '';
 	position: absolute;
-	width: 20px;
-	height: 3px;
+	width: 14px;
+	height: 2px;
 	background: var(--secondary-color);
 	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(255,101,47,.2);
-	transition: all .25s ease-in-out;
+	/*transition: all .1s ease-in-out;*/
 }
-
+/*upper line*/
 .menu-button__mobile::before {
-	transform: translateY(-8px);
+	transform: translateY(-6px);
 }
-
+/*lower line*/
 .menu-button__mobile::after {
-	transform: translateY(8px);
+	transform: translateY(6px);
 }
 /*Mobile Menu Animation*/
 .menu-button.open .menu-button__mobile{
@@ -314,11 +316,11 @@ footer {
 }
 
 .menu-button.open .menu-button__mobile::before {
-	transform: rotate(45deg) translate(16px, -16px);
+	transform: rotate(45deg) translate(14px, -14px);
 }
 
 .menu-button.open .menu-button__mobile::after {
-	transform: rotate(-45deg) translate(16px, 16px);
+	transform: rotate(-45deg) translate(14px, 14px);
 }
 
 .Bio {
@@ -358,7 +360,7 @@ li.CVV {
 	text-align: left;
 	padding: 0;
 	display: block;
-	font-size: 14px;
+	font-size: 12px;
 }
 li#title {
 	padding: 0;
@@ -424,7 +426,7 @@ ul.innerList {
 }
 
 i, b {
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .footer {
@@ -502,7 +504,7 @@ i, b {
 	align-items: left;
 	text-align: justify;
 	margin: 0 auto;
-	max-width: 80vw;
+	max-width: 900px;
 	min-width: 25%;
 	height: 100%;
 	padding: 5px 0 20px 0;
@@ -531,6 +533,7 @@ form {
 	appearance: none;
 	outline: none;
 	border: 1px solid lightgrey;
+	font-size: 12px;
 	border-radius: 4px;
 	min-width: 55%;
 	padding: 5px 0 5px 10px;
@@ -575,7 +578,7 @@ textarea {
 	margin: 20px;
 	padding: 20px;
 	border-radius: 4px;
-	transition: 0.25s;
+	transition: 0.1s;
 	cursor: pointer;
 	z-index: 1;
 }
@@ -586,7 +589,7 @@ textarea {
 }
 
 .article-card:hover {
-	transform: scale(1.05);
+	transform: scale(1.025);
 	border: 2px solid #9A52FF;
 	
 	/*background: linear-gradient(to bottom, #fbe1b1 0%, #fbbcb1 100%);*/
@@ -652,7 +655,7 @@ textarea {
 
 #icon {
 	position: fixed;
-	top: 30px;
+	top: 35px;
 	right: 25px;
 	z-index: 1050;
 }
@@ -661,7 +664,7 @@ textarea {
 .dropdown {
 	position: fixed;
 	display: inline-block;
-	top: 30px;
+	top: 35px;
 	right: 55px;
 	z-index: 1050;
 	padding-bottom: 50px;
@@ -883,7 +886,9 @@ textarea {
 	.bottom-text {
 		display: relative;
 	}
-
+	.CV-container {
+		max-width: 80vw;
+	}
 
 }
 
@@ -909,3 +914,22 @@ textarea {
 
 
 /*#9A52FF vibrant purple*/
+.alertBanner {
+	background-color: #9A52FF;
+	background-image: linear-gradient(to right, #9A52FF, #EDE4FA);
+	color: #ffffff;
+	font-size: 5px;
+	display: flex;
+	position: absolute;
+	z-index: 3000;
+	top: 0;
+	height: 15px;
+	width: 100%;
+	padding: 0;
+}
+
+.alertBanner p {
+	color: #ffffff;
+	font-size: 11px;
+	text-align: center;
+}
