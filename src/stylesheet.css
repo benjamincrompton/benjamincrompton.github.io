@@ -325,7 +325,10 @@ footer {
 
 .Bio {
 	width: 75%;
-	height: 300px;
+	height: auto;
+	display: -moz-inline-stack;
+	align-items: center;
+	padding-top: 75px;
 	margin-right: auto;
 	margin-left: auto;
 	z-index: 1;
@@ -807,7 +810,7 @@ textarea {
 	}
 
 	.Bio {
-		height: 400px;
+		height: auto;
 	}
 
 	nav {
