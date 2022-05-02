@@ -59,23 +59,25 @@ section {
 
 nav {
 	display: flex;
+	background-color: transparent;
 	position: fixed;
 	top: 0;
 	width: 100%;
-	justify-content: flex-start;
+	justify-content: flex-end;
 	height: 70px;
 	z-index: 1001;
-	border-bottom: 1px solid lightgrey /*#f2f2f2*/;
+	/*border-bottom: 1px solid lightgrey /*#f2f2f2*/; 
 	/*box-shadow: 0 8px 16px -8px rgb(0 0 0 / 16%);*/
 }
 
 .nav-ul {
 	display: flex;
 	list-style-type: none;
-	width: 300px;
+	width: 100px;
 	justify-content: space-around;
 	font-size: 16px;
 	text-align: center;
+	background-color: transparent;
 }
 
 ul.show {
@@ -83,11 +85,14 @@ ul.show {
 }
 
 .nav-ul li {
-	padding-top: 18px;
+	padding-top: 10px;
 }
 
 .nav-li a {
 	font-size: 12px;
+	padding: 5px;
+	border: 2px solid var(--secondary-color);
+	border-radius: 2px;
 }
 
 li {
@@ -260,7 +265,7 @@ footer {
 }
 
 .button:active {
-	background-color: d#A9A9A9;
+	background-color: #A9A9A9;
 	color: #808080;
 }
 
