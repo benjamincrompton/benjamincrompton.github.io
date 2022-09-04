@@ -279,55 +279,6 @@ footer {
 	margin: 0;
 }
 
-/*Mobile Menu*/
-.menu-button__mobile {
-	width: 20px;
-	height: 2px;
-	background: var(--secondary-color);
-	border-radius: 5px;
-	box-shadow: 0 2px 5px rgba(255,101,47,.2);
-	transition: all .25s ease-in-out;
-	padding: 0;
-}
-
-.menu-button__mobile:hover {
-	transform: scale(1.025);
-}
-
-.menu-button__mobile::before,
-.menu-button__mobile::after {
-	content: '';
-	position: absolute;
-	width: 14px;
-	height: 2px;
-	background: var(--secondary-color);
-	border-radius: 5px;
-	box-shadow: 0 2px 5px rgba(255,101,47,.2);
-	/*transition: all .1s ease-in-out;*/
-}
-/*upper line*/
-.menu-button__mobile::before {
-	transform: translateY(-6px);
-}
-/*lower line*/
-.menu-button__mobile::after {
-	transform: translateY(6px);
-}
-/*Mobile Menu Animation*/
-.menu-button.open .menu-button__mobile{
-	transform: translateX(-20px);
-	background: transparent;
-	box-shadow: none;
-}
-
-.menu-button.open .menu-button__mobile::before {
-	transform: rotate(45deg) translate(14px, -14px);
-}
-
-.menu-button.open .menu-button__mobile::after {
-	transform: rotate(-45deg) translate(14px, 14px);
-}
-
 .Bio {
 	width: 75%;
 	height: auto;
@@ -803,12 +754,6 @@ textarea {
 
 /*@Media Code*/
 @media only screen and (max-width: 992px) {
-	.menu-button {
-		display: block;
-		border: 0;
-		color: white;
-		font-size: 30px;
-	}
 
 	body{
 		overflow-x: hidden;
@@ -818,12 +763,13 @@ textarea {
 		height: auto;
 	}
 
-	nav {
+	 nav {
 		justify-content: space-between;
 	}
-	.nav-ul {
+	
+	/*.nav-ul {
 		display: none;
-	}
+	} */
 
 	.article-card {
 		width: 75%;
