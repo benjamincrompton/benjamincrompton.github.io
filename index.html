@@ -1,57 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benjamin Crompton</title>
-    <link rel="icon" href="images/profile-picture-2.PNG">
-    <link rel="stylesheet" href="src/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Your Name] – Engineering Portfolio</title>
+  <style>
+    /* Reset / base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background-color: #fff;
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    /* Hero section */
+    .hero-section {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #f6f9fc, #e6f2ff);
+      padding: 100px 20px;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-cta .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn-primary {
+      background: #627eea; /* Ethereum purple */
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #4a63c4;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border: 2px solid #627eea;
+      color: #627eea;
+    }
+
+    .btn-secondary:hover {
+      background: #627eea;
+      color: #fff;
+    }
+
+    /* Grid layouts */
+    .grid, .projects-list, .metrics-grid, .process-list, .demos-grid {
+      display: grid;
+      gap: 30px;
+    }
+
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    /*.projects-list {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }*/
+
+    .projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+}
+
+    .metrics-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      text-align: center;
+    }
+
+    .metrics-grid .number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #627eea;
+    }
+
+    /* Project cards */
+    .project {
+  background: #fff;
+  border-radius: 16px;          /* card radius */
+  border: 1px solid #e0e0e0;
+  box-shadow: 
+    0 4px 6px rgba(0,0,0,0.04), 
+    0 10px 20px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;             /* ensures radius clips inner content */
+  text-align: center;
+  padding: 15px;                /* consistent space all around */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.project img, .project video {
+  width: 100%;
+  height: auto;                 /* preserves original aspect ratio */
+  border-radius: 16px;          /* matches card radius */
+  margin-bottom: 15px;          /* space between media and text */
+  display: block;
+}
+
+.project h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.project p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+
+.project:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 8px 12px rgba(0,0,0,0.06),
+    0 20px 40px rgba(0,0,0,0.1);
+}
+
+    .project img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .project video {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    /* Footer */
+    footer {
+      background: #f9f9f9;
+      color: #111;
+      padding: 40px 10%;
+      text-align: center;
+    }
+
+    footer nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin: 0 8px;
+      transition: color 0.3s;
+    }
+
+    footer nav a:hover {
+      color: #fff;
+    }
+
+    .expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.expertise-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+  box-shadow:
+    0 4px 6px rgba(0,0,0,0.04),
+    0 10px 20px rgba(0,0,0,0.06);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.expertise-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 8px 12px rgba(0,0,0,0.06),
+    0 20px 40px rgba(0,0,0,0.1);
+}
+
+.expertise-icon {
+  width: 60px;            /* icon size */
+  height: 60px;
+  margin-bottom: 15px;    /* space below icon */
+}
+
+.expertise-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.expertise-card ul {
+  list-style: disc;
+  padding-left: 20px;
+  text-align: left;       /* bullet points aligned left */
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  padding: 80px 10%;
+  background: #f9f9f9; /* soft contrast to white sections */
+  text-align: center;
+}
+
+.contact-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.contact-content p {
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.linkedin-link svg {
+  fill: #627eea; /* Ethereum purple accent */
+  transition: transform 0.3s ease, fill 0.3s ease;
+  margin: 20px 0;
+}
+.linkedin-link:hover svg {
+  transform: scale(1.1);
+  fill: #4a63c4;
+}
+
+/* Form styling */
+#contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 15px;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  outline: none;
+  border-color: #627eea;
+  box-shadow: 0 4px 10px rgba(98,126,234,0.15);
+}
+
+#submit-button {
+  background: #627eea;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#submit-button:hover {
+  background: #4a63c4;
+}
+
+.project-small-image {
+  width: auto;
+  max-width: 80%;   /* slightly smaller than full card */
+  max-height: 500px;
+  display: block;
+  margin: 0 auto 15px;
+  object-fit: contain;
+}
+
+
+  </style>
 </head>
 <body>
-    <section id="home" class="section">
-        <div><img src="./images/profile-picture.PNG"></div>
-        <div class="title">
-            <h1 class="title">Benjamin Crompton</h1>
-        </div>
-            <div class="content">
-            <p><u>Mechanical engineer</u> with 6 years of experience in design, research and development. 
-                Skilled CAD operator, able to produce conceptual and detailed designs with great efficiency.
-                Well-practiced in CFD/FEA and physical testing to verify and validate designs. 
-                Knowledgeable in the design for manufacture of parts made from the following processes: injection moulding, sheet metal fabrication, forging, casting.
-                </p>
-                <p>
-                    Sectors: Medical devices, electronics, industrial machinery.
-                </p><br>
-        </div>
+
+  <!-- HERO SECTION -->
+  <header id="hero" class="hero-section">
+    <h1>Benjamin Crompton</h1>
+    <h2>Mechanical Design Engineer</h2>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Sample Work</a>
+      <a href="#contact" class="btn btn-secondary">Request CV</a>
+    </div>
+  </header>
+
+  <!-- EXPERTISE / SERVICES -->
+  <section id="expertise">
+    <h2>Expertise / Services</h2>
+    <div class="expertise-grid">
+      <!-- Skill 1 -->
+      <div class="expertise-card">
+        <img src="images/icons/mechanicaldesign.png" alt="Mechanical Design Icon" class="expertise-icon">
+        <h3>Mechanical Design & Drafting</h3>
+        <ul>
+          <li>3D CAD modelling</li>
+          <li>Assembly design & tolerance analysis</li>
+          <li>Technical drawings & documentation</li>
+        </ul>
+      </div>
+  
+      <!-- Skill 2 -->
+      <div class="expertise-card">
+        <img src="images/icons/analysis.png" alt="Analysis Icon" class="expertise-icon">
+        <h3>Analysis (FEA/CFD)</h3>
+        <ul>
+          <li>Stress & deformation analysis</li>
+          <li>Fluid dynamics simulations</li>
+          <li>Optimisation of component performance</li>
+        </ul>
+      </div>
+  
+      <!-- Skill 3 -->
+      <div class="expertise-card">
+        <img src="images/icons/designformanufacture.png" alt="DFM Icon" class="expertise-icon">
+        <h3>Design for Manufacture</h3>
+        <ul>
+          <li>Material selection</li>
+          <li>Cost-effective design solutions</li>
+          <li>Production-ready CAD models</li>
+        </ul>
+      </div>
+  
+      <!-- Skill 4 -->
+      <div class="expertise-card">
+        <img src="images/icons/designforassembly.png" alt="Manufacture Icon" class="expertise-icon">
+        <h3>Design for Assembly</h3>
+        <ul>
+          <li>Standardisation of fasteners/components</li>
+          <li>Error-proofing</li>
+          <li>Minimising assembly time</li>
+        </ul>
+      </div>
+
+      <!-- Skill 5 -->
+      <div class="expertise-card">
+        <img src="images/icons/compliance.png" alt="Manufacture Icon" class="expertise-icon">
+        <h3>Industry/Standard Compliance</h3>
+        <ul>
+          <li>Research of applicable standards</li>
+          <li>Testing and validation</li>
+          <li>Certification preparation</li>
+        </ul>
+      </div>
+
+            <!-- Skill 6 -->
+      <div class="expertise-card">
+        <img src="Images/icons/procurement.png" alt="Manufacture Icon" class="expertise-icon">
+
+        <h3>Procurement</h3>
+        <ul>
+          <li>Supplier engagement and technical communication</li>
+          <li>Quotation and cost analysis</li>
+          <li>Quality and compliance checks</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- PROJECT HIGHLIGHTS -->
+  <section id="projects">
+    <h2>Computer-Aided Design Examples</h2>
+    <div class="projects-list">
+            <div class="project">
+        <img src="images/Meech_Placeholder.jpg" alt="Project 2">
+        <h3><a href="#">Injection-moulded enclosure with membrane keypad</a></h3>
+        <p>UL and IP66 certified enclosure for high-voltage electronics (±15kV)</p>
+      </div>
+      <div class="project">
+        <video src="https://www.coringroup.com/assets/Uploads/icona-rotation-v3.mp4" type="video/mp4" autoplay muted loop playsinline alt="Project 2"></video>
+        <h3><a href="#">Femoral stem implant</a></h3>
+        <p>Full credit goes to Corin. Reference: https://www.coringroup.com/healthcare-professionals/products/icona/<br><br>
+        Example of an implant that I worked on during my time at Corin.</p>
+      </div>
+      <div class="project">
+        <img src="images/Gilkes - Placeholder Image 3.jpg" alt="Project 2">
+        <h3><a href="#">Centrifugal pump assembly</a></h3>
+        <p>Example of a complex assembly that I worked on.</p>
+      </div>
+      <div class="project">
+        <img src="images/Gilkes - Placeholder Image 1.PNG" alt="Project 1">
+        <h3><a href="#">Peripheral Impeller</a></h3>
+        <p>Modelling exhibit - cast and machined part.</p>
+      </div>
+      <div class="project">
+        <img src="images/Gilkes - Placeholder Image 2.PNG" alt="Project 2">
+        <h3><a href="#">Enclosed Centrifugal Impeller</a></h3>
+        <p>Modelling exhibit - cast and machined part.</p>
+      </div>
+    </div>
     </section>
 
-    <section id="contact" class="section">
-        <div class="contact_content">
-            <h1 class="title">Contact</h1>
-            <p class="title">Get in touch via <u>LinkedIn</u></p>
-            <a class="title" href="https://www.linkedin.com/in/benjamincromptonuk/">
-                <svg id="social-media" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 30 30">
-                    <path d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"></path>
-                </svg>
-            </a>
-            <p>or <u>E-mail</u> using this form below:</p>
-            <form id="contact-form" action="https://formsubmit.co/836d211de3782b99a90fef19b30aa8e2" method="post">
-                <input type="text" id="name" name="name" placeholder="Full name" required>
-                <input type="email" id="email" name="email" placeholder="E-mail" required>
-                <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                <textarea id="message" name="message" placeholder="Message" required></textarea>
-                <button id="submit-button" type="submit">Send</button>
-            </form>
-        </div>
-    </section>
+    <section id="projects">
+    <h2>Simulation Examples</h2>
+    <div class="projects-list">  
+      <div class="project">
+        <img class="project-small-image" src="images/ICL - Placeholder Image.PNG" alt="Project 1">
+        <h3><a href="#">Rigid multi-body model derived from DICOMs</a></h3>
+        <p>Developed a rigid multi-body model, complete with articular cartilage, pre-loaded ligaments, and tendons to evaluate the wrist in different orientations. A stage 4 scapholunate dissociation was simulated, and the model was used to explore different tunnel/anchor positions. From there, optimal positions could be evaluated for the surgeon.</p>
+      </div>
+      <div class="project">
+        <img src="images/Corin - FEA - Placeholder Image 1.PNG" max-width="200px" height="auto" alt="Project 1">
+        <h3><a href="#">FEA: ISO 7206-6 (Neck Fatigue) & ISO 7206-4 (Stem Fatigue)</a></h3>
+        <p>Early design verification of a femoral stem implant.</p>
+      </div>
+      <div class="project">
+        <img src="images/UoM - Placeholder Image 1.PNG" alt="Project 1">
+        <h3><a href="#">CFD: Parametric Study to Optimise Cannula design for Heart Pump</a></h3>
+        <p>Developed a model of an aorta and left ventricular assist device (LVAD). The study focussed on altering the geometry of the cannula of the LVAD to optimise the blood
+flow in the aorta. Optimisation was done by minimising the shear forces on the aortic walls, which in turn would reduce the risk of stroke post-LVAD implantation. </p>
+      </div>
+  </div>
+  </section>
 
-    <footer>
-        <span>
-            <p class="title">&copy; 2025 Benjamin Crompton.</p>
-        </span>
-    </footer>
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-content">
+    <h2>Contact</h2>
+    <p>Get in touch via <u>LinkedIn</u></p>
+    <a class="linkedin-link" href="https://www.linkedin.com/in/benjamincromptonuk/" target="_blank" rel="noopener">
+      <svg id="social-media" xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" viewBox="0 0 30 30">
+        <path d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"></path>
+      </svg>
+    </a>
+    <p>or <u>E-mail</u> using this form below:</p>
+    <form id="contact-form" action="https://formsubmit.co/836d211de3782b99a90fef19b30aa8e2" method="post">
+      <input type="text" id="name" name="name" placeholder="Full name" required>
+      <input type="email" id="email" name="email" placeholder="E-mail" required>
+      <input type="text" id="subject" name="subject" placeholder="Subject" required>
+      <textarea id="message" name="message" placeholder="Message" required></textarea>
+      <button id="submit-button" type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Benjamin Crompton. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
